@@ -1,0 +1,333 @@
+/* 乐米惠圆体（中文正文，自托管）— 字体文件见 assets/fonts/README.md */
+@font-face {
+  font-family: 'LemiHuiYuanTi';
+  src: url('fonts/lemi-huiyuan-ti.woff2') format('woff2'),
+    url('fonts/lemi-huiyuan-ti.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --bg: #f6f5f1;
+  --card: #ffffff;
+  --text: #45423c;
+  --muted: #8b877e;
+  --line: #e6e3db;
+  --accent: #7d8f7e;
+  --accent-soft: #eef1ea;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 隐藏所有滚动条（保留滚动功能） */
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none; /* Chrome / Safari / Edge */
+}
+
+body {
+  /* 中文用乐米惠圆体，兜底系统圆体 */
+  font-family: 'LemiHuiYuanTi', 'Yuanti SC', 'YouYuan', '幼圆',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 圆润字体：站酷小薇Logo体，用于标题/品牌等突出文字 */
+.brand,
+h1,
+.section-title,
+.avatar,
+.card .name,
+.projects .name,
+.thanks {
+  font-family: "ZCOOL XiaoWei", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.brand {
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.nav a {
+  color: var(--muted);
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  text-align: center;
+  padding: 110px 0 110px;
+}
+
+/* hero 背景：猫咪随机排列铺满 */
+.hero-cats {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-cats img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.hero h1,
+.hero .bio {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(246, 245, 241, 0.6);
+  border-radius: 10px;
+  padding: 6px 18px;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  display: block;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.role {
+  color: var(--muted);
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.bio {
+  margin-top: 16px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.tags li {
+  font-size: 13px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  padding: 4px 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Sections */
+main {
+  flex: 1;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+/* Projects */
+.projects {
+  list-style: none;
+}
+
+.projects li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.projects .name {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.projects .name:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.projects .desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.projects .meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* About / contact text */
+.text p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Grid cards (cats, payment) */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: transparent;
+  border-radius: var(--radius);
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card .name {
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.card .meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Payment thank-you line */
+.thanks {
+  text-align: center;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+  padding-top: 28px;
+  margin-top: 8px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 560px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 72px 0 64px;
+  }
+}

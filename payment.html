@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>感谢投喂 · guokaigdg</title>
+  <meta name="description" content="感谢投喂，你的每一份心意，都会变成小猫的罐头和小鱼干。" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='4' fill='%237d8f7e'/></svg>" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">ARC</a>
+      <nav class="nav">
+        <a href="index.html">首页</a>
+        <a href="payment.html" class="active">投喂区</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-cats" id="hero-cats" aria-hidden="true"></div>
+      <h1>感谢投喂</h1>
+      <p class="bio">你的每一份心意，都会变成"辛巴"和"大白"的罐头和小鱼干</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">投喂方式</h2>
+      <div class="grid-2">
+        <div class="card">
+          <img src="assets/wechat.jpeg" alt="微信收款码" width="275" height="200" />
+        </div>
+        <div class="card">
+          <img src="assets/zhifubao.jpeg" alt="支付宝收款码" width="250" height="200" />
+        </div>
+      </div>
+      <p class="thanks">扫码投喂，给猫咪加餐 </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">© 2026 guokaigdg</div>
+  </footer>
+
+  <script>
+    // 在 hero 背景中随机排列猫咪图片，铺满整个区块（允许轻微重叠）
+    (function () {
+      var container = document.getElementById("hero-cats");
+      if (!container) return;
+      var srcs = [
+        "assets/dabai.avif",
+        "assets/xinba.avif",
+        "assets/dabai2.avif",
+        "assets/xinba2.avif",
+      ];
+      var W = container.clientWidth || window.innerWidth;
+      var H = container.clientHeight || window.innerHeight;
+      var placed = [];
+      var isMobile = window.innerWidth <= 560;
+      var count = isMobile ? 18 : 24; // 移动端少放几只，避免拥挤
+      var bigCount = isMobile ? 5 : 8; // 大猫数量，营造大小对比
+
+      // 文字区域（标题 + 描述）作为避让区，猫咪尽量不盖住文字背景
+      var textZones = (function () {
+        var hero = container.parentElement;
+        var els = [hero.querySelector("h1"), hero.querySelector(".bio")];
+        var cRect = container.getBoundingClientRect();
+        var zones = [];
+        for (var i = 0; i < els.length; i++) {
+          if (!els[i]) continue;
+          var r = els[i].getBoundingClientRect();
+          zones.push({
+            x: r.left - cRect.left - 12,
+            y: r.top - cRect.top - 12,
+            w: r.width + 24,
+            h: r.height + 24,
+          });
+        }
+        return zones;
+      })();
+
+      // 计算新猫咪与文字区域的重叠面积占比（取较小者面积作分母）
+      function overlapsText(x, y, size) {
+        for (var i = 0; i < textZones.length; i++) {
+          var z = textZones[i];
+          var ox = Math.min(x + size, z.x + z.w) - Math.max(x, z.x);
+          var oy = Math.min(y + size, z.y + z.h) - Math.max(y, z.y);
+          if (ox > 0 && oy > 0) {
+            var ratio = (ox * oy) / Math.min(size * size, z.w * z.h);
+            if (ratio > 0.15) return true;
+          }
+        }
+        return false;
+      }
+
+      // 计算新猫咪与已放置猫咪的重叠面积占比（取较小者面积作分母）
+      function overlapRatio(x, y, size, other) {
+        var ox = Math.min(x + size, other.x + other.size) - Math.max(x, other.x);
+        var oy = Math.min(y + size, other.y + other.size) - Math.max(y, other.y);
+        if (ox <= 0 || oy <= 0) return 0;
+        return (ox * oy) / Math.min(size * size, other.size * other.size);
+      }
+
+      function tooCrowded(x, y, size) {
+        for (var i = 0; i < placed.length; i++) {
+          if (overlapRatio(x, y, size, placed[i]) > 0.35) return true;
+        }
+        return false;
+      }
+
+      for (var i = 0; i < count; i++) {
+        var img = document.createElement("img");
+        img.src = srcs[Math.floor(Math.random() * srcs.length)];
+        img.alt = "";
+        var size;
+        if (i < bigCount) {
+          // 大猫：桌面 90–150px，移动端 70–110px
+          size = isMobile ? 70 + Math.random() * 40 : 90 + Math.random() * 60;
+        } else {
+          // 小猫：桌面 36–76px，移动端 24–56px
+          size = isMobile ? 24 + Math.random() * 32 : 36 + Math.random() * 40;
+        }
+
+        var x = 0;
+        var y = 0;
+        for (var attempt = 0; attempt < 20; attempt++) {
+          x = Math.random() * (W - size);
+          y = Math.random() * (H - size);
+          if (!tooCrowded(x, y, size) && !overlapsText(x, y, size)) break;
+        }
+
+        img.style.width = size + "px";
+        img.style.left = x + "px";
+        img.style.top = y + "px";
+        img.style.transform =
+          "rotate(" + (Math.random() * 40 - 20) + "deg)" +
+          (Math.random() < 0.5 ? " scaleX(-1)" : "");
+        img.style.opacity = (0.45 + Math.random() * 0.4).toFixed(2);
+        container.appendChild(img);
+        placed.push({ x: x, y: y, size: size });
+      }
+    })();
+  </script>
+</body>
+
+</html>
