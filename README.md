@@ -1,8 +1,6 @@
-# home
+# guokaigdg 的个人主页
 
-guokaigdg 的个人主页
-
-线上地址：<https://github.com/guokaigdg/home.git>
+线上地址：<https://guokaigdg.github.io/home/>
 
 
 ## 字体版权

@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>感谢投喂 · guokaigdg</title>
+  <title>感谢投喂 — guokaigdg</title>
   <meta name="description" content="感谢投喂，你的每一份心意，都会变成小猫的罐头和小鱼干。" />
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='4' fill='%237d8f7e'/></svg>" />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='2' fill='%234a6b50'/></svg>" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
@@ -15,7 +15,7 @@
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="index.html">ARC</a>
+      <a class="brand" href="index.html">ARCzone</a>
       <nav class="nav">
         <a href="index.html">首页</a>
         <a href="payment.html" class="active">投喂区</a>
@@ -24,28 +24,40 @@
   </header>
 
   <main class="wrap">
-    <section class="hero">
+
+    <!-- Hero -->
+    <section class="pay-hero">
       <div class="hero-cats" id="hero-cats" aria-hidden="true"></div>
       <h1>感谢投喂</h1>
       <p class="bio">你的每一份心意，都会变成"辛巴"和"大白"的罐头和小鱼干</p>
     </section>
 
-    <section>
-      <h2 class="section-title">投喂方式</h2>
-      <div class="grid-2">
-        <div class="card">
+    <!-- 投喂方式 -->
+    <section class="block">
+      <p class="eyebrow">投喂方式 / Donate</p>
+      <div class="qr-grid">
+        <div class="qr qr-wechat">
           <img src="assets/wechat.jpeg" alt="微信收款码" width="275" height="200" />
+          <div class="name">微信</div>
+          <div class="meta">扫一扫</div>
         </div>
-        <div class="card">
+        <div class="qr">
           <img src="assets/zhifubao.jpeg" alt="支付宝收款码" width="250" height="200" />
+          <div class="name">支付宝</div>
+          <div class="meta">扫一扫</div>
         </div>
       </div>
-      <p class="thanks">扫码投喂，给猫咪加餐 </p>
     </section>
+
+    <!-- 感谢 -->
+    <section class="block">
+      <p class="thanks">扫码投喂，给猫咪加餐</p>
+    </section>
+
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">© 2026 guokaigdg</div>
+    <div class="wrap">© 2026 guokaigdg · 前端工程师 · 北京</div>
   </footer>
 
   <script>
