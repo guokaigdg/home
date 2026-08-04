@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>感谢投喂 — guokaigdg</title>
-  <meta name="description" content="感谢投喂，你的每一份心意，都会变成小猫的罐头和小鱼干。" />
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='2' fill='%234a6b50'/></svg>" />
+  <script>
+    // 在 body 渲染前读取语言偏好,若非英文则隐藏待翻译文本,避免中英闪动
+    (function () {
+      try {
+        var lang = localStorage.getItem('lang') || 'en';
+        if (lang !== 'en') {
+          document.documentElement.lang = 'zh-CN';
+          document.documentElement.classList.add('i18n-loading');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <title>Thank You — guokaigdg</title>
+  <meta name="description" content="Thank you for your support. Every contribution becomes food and treats for the cats." />
+  <link rel="icon" href="assets/favicon.ico" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
@@ -15,10 +26,11 @@
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="index.html">ARCzone</a>
+      <a class="brand" href="index.html"><img src="assets/favicon.ico" alt="guokaigdg" /></a>
       <nav class="nav">
-        <a href="index.html">首页</a>
-        <a href="payment.html" class="active">投喂区</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="payment.html" class="active" data-i18n="nav.payment">Donate</a>
+        <button class="lang-toggle" type="button" aria-label="切换语言 / Switch language">中</button>
       </nav>
     </div>
   </header>
@@ -28,40 +40,42 @@
     <!-- Hero -->
     <section class="pay-hero">
       <div class="hero-cats" id="hero-cats" aria-hidden="true"></div>
-      <h1>感谢投喂</h1>
-      <p class="bio">你的每一份心意，都会变成"辛巴"和"大白"的罐头和小鱼干</p>
+      <h1 data-i18n="pay.title">Thank You</h1>
+      <p class="bio" data-i18n="pay.bio">Every contribution becomes food and treats for Xinba and Dabai.</p>
     </section>
 
     <!-- 投喂方式 -->
     <section class="block">
-      <p class="eyebrow">投喂方式 / Donate</p>
+      <p class="eyebrow" data-i18n="pay.donate">Donate</p>
       <div class="qr-grid">
         <div class="qr qr-wechat">
-          <img src="assets/wechat.jpeg" alt="微信收款码" width="275" height="200" />
-          <div class="name">微信</div>
-          <div class="meta">扫一扫</div>
+          <img src="assets/wechat.jpeg" alt="WeChat QR code" width="275" height="200" />
+          <div class="name" data-i18n="pay.wechat">WeChat</div>
+          <div class="meta" data-i18n="pay.scan">Scan</div>
         </div>
         <div class="qr">
-          <img src="assets/zhifubao.jpeg" alt="支付宝收款码" width="250" height="200" />
-          <div class="name">支付宝</div>
-          <div class="meta">扫一扫</div>
+          <img src="assets/zhifubao.jpeg" alt="Alipay QR code" width="250" height="200" />
+          <div class="name" data-i18n="pay.alipay">Alipay</div>
+          <div class="meta" data-i18n="pay.scan">Scan</div>
         </div>
       </div>
     </section>
 
     <!-- 感谢 -->
     <section class="block">
-      <p class="thanks">扫码投喂，给猫咪加餐</p>
+      <p class="thanks" data-i18n="pay.thanks">Scan to treat the cats</p>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">© 2026 guokaigdg · 前端工程师 · 北京</div>
+    <div class="wrap">© 2026 guokaigdg. All Rights Reserved.</div>
   </footer>
 
+  <script src="assets/i18n.js"></script>
   <script>
     // 在 hero 背景中随机排列猫咪图片，铺满整个区块（允许轻微重叠）
+    // 注意：此脚本须在 i18n.js 之后执行，以便基于当前语言文字位置避让
     (function () {
       var container = document.getElementById("hero-cats");
       if (!container) return;

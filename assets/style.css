@@ -95,6 +95,12 @@ a:hover {
   color: var(--accent);
 }
 
+.brand img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
 .nav a {
   color: var(--muted);
   font-size: 13px;
@@ -105,6 +111,32 @@ a:hover {
 .nav a:hover,
 .nav a.active {
   color: var(--text);
+}
+
+/* 语言切换按钮 */
+.lang-toggle {
+  margin-left: 24px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 12px;
+  font-size: 12px;
+  font-family: inherit;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1.6;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.lang-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* i18n 加载中:隐藏待翻译文本与切换按钮,避免跳页时中英闪动 */
+html.i18n-loading [data-i18n],
+html.i18n-loading .lang-toggle {
+  visibility: hidden;
 }
 
 /* ============ 主内容流 ============ */
@@ -127,12 +159,39 @@ main {
   padding: 36px 0;
 }
 
+/* 联系列表两行排布,无分隔线 */
+.contact-block .link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-block .link-list li {
+  border: none;
+}
+
 .contact-block .eyebrow {
   margin-bottom: 14px;
 }
 
 .contact-block .link-item {
   padding: 12px 0;
+  justify-content: flex-start;
+  gap: 14px;
+  align-items: center;
+}
+
+.link-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.link-item:hover .link-icon {
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .contact-block .link-item .label {
