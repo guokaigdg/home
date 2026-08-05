@@ -5,13 +5,15 @@
       'nav.home': '首页',
       'nav.payment': '投喂区',
       'hero.role': '前端工程师<span class="dot">·</span>北京',
-      'hero.bio': '两猫家长，一只英短，一只美短。业余骑行、摄影、滑雪，也做开源。',
+      'hero.bio': '两猫家长，一只英短，一只美短，业余骑行、摄影、滑雪，参与开源。',
       'tag.frontend': '前端开发',
       'tag.cycling': '骑行',
       'tag.skiing': '滑雪',
       'tag.opensource': '开源',
       'contact.title': '联系 / Contact',
       'contact.email': '邮箱',
+      'contact.xhs': 'Xiaohongshu',
+      'contact.instagram': 'Instagram',
       'pay.title': '感谢投喂',
       'pay.bio': '你的每一份心意，都会变成"辛巴"和"大白"的罐头和小鱼干',
       'pay.donate': '投喂方式 / Donate',
@@ -24,13 +26,15 @@
       'nav.home': 'Home',
       'nav.payment': 'Donate',
       'hero.role': 'Frontend Engineer<span class="dot">·</span>Beijing',
-      'hero.bio': 'Cat parent to a British Shorthair and an American Shorthair. Cycling, photography, skiing, and open source in free time.',
+      'hero.bio': 'Cat parent to a British Shorthair and an American Shorthair. Cycling, photography, skiing, and open source contributions in free time.',
       'tag.frontend': 'Frontend',
       'tag.cycling': 'Cycling',
       'tag.skiing': 'Skiing',
       'tag.opensource': 'Open Source',
       'contact.title': 'Contact',
       'contact.email': 'Email',
+      'contact.xhs': 'Xiaohongshu',
+      'contact.instagram': 'Instagram',
       'pay.title': 'Thank You',
       'pay.bio': 'Every contribution becomes food and treats for Xinba and Dabai.',
       'pay.donate': 'Donate',
@@ -64,15 +68,15 @@
 
   function toggleLang() {
     const current = (function () {
-      try { return localStorage.getItem('lang') || 'en'; }
-      catch (e) { return 'en'; }
+      try { return localStorage.getItem('lang') || 'zh'; }
+      catch (e) { return 'zh'; }
     })();
     applyLang(current === 'zh' ? 'en' : 'zh');
   }
 
   function init() {
-    let saved = 'en';
-    try { saved = localStorage.getItem('lang') || 'en'; } catch (e) {}
+    let saved = 'zh';
+    try { saved = localStorage.getItem('lang') || 'zh'; } catch (e) {}
     applyLang(saved);
     // 译文已应用,移除隐藏类,避免跳页时中英闪动
     document.documentElement.classList.remove('i18n-loading');
