@@ -1,24 +1,21 @@
-# guokaigdg 的个人主页
+# GUOKAIGDG's Personal Homepage
 
-线上地址：<https://guokaigdg.github.io/home/>
+<p align="right">
+    <a href="./README.zh-CN.md">简体中文</a> | <strong>English</strong> 
+</p>
 
-## 项目简介
 
-个人主页与投喂页，纯静态站点（HTML + CSS + JS），无构建步骤、无第三方运行时依赖，直接部署即可访问。
+<p align="center">
+  <img src="assets/home.png" width="600" alt="Homepage preview">
+</p>
 
-## 功能特性
+Live site: <https://guokaigdg.github.io/home/>
 
-- **中英双语**：默认中文，导航栏「En / 中」一键切换英文，语言选择保存在 localStorage
-- **明暗模式**：默认明亮模式，导航栏太阳/月亮按钮手动切换暗色，选择保存在 localStorage
-- **首页**：居中卡片式布局（头像、名字、简介、标签），联系区图标行收尾
-- **联系方式**：GitHub、Instagram、小红书、邮箱（点击图标直达）
-- **投喂页**：微信/支付宝收款码，猫咪背景装饰
+## Font Licenses
 
-## 字体版权
+- Lemihui (乐米惠圆体): Free for commercial use, from <https://font.leminet.cn/>. Please download and keep the free-commercial-use license when using it.
+- Sniglet: Open-source font, loaded via jsDelivr from @fontsource/sniglet.
 
-- 乐米惠圆体：免费商用，来源 <https://font.leminet.cn/>，使用时请下载并保留免费商用授权书。
-- Sniglet：开源字体，经 jsDelivr 加载 @fontsource/sniglet。
+## License
 
-## 许可证
-
-未经授权，请勿将本站收款码图片用于其他用途。其余代码版权归原作者所有。
+Do not use the site's payment QR code images for other purposes without permission. All other code is copyrighted by the original author.
