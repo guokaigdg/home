@@ -1,14 +1,27 @@
 # 字体文件
 
-## 乐米惠圆体（中文正文，自托管）
+本站拉丁字符使用自托管的 [Allo](https://allo.joshpuckett.me)，中文回退到系统字体。
+字体栈定义在 `assets/style.css` 顶部，两个页面都预加载了同一个字体文件。
 
-- 来源：乐米官网 <https://font.leminet.cn/>（免费商用，需下载免费商用授权书）
-- 放置：将字体文件保存到本目录，命名为以下任一格式（style.css 会自动识别）：
-  - `lemi-huiyuan-ti.woff2`（推荐，体积小，加载快）
-  - `lemi-huiyuan-ti.ttf`（官网下载的 TTF 约 5.4MB，可直接使用）
-- 建议：用 webfont 工具（如 mianfeiziti.com 的 webfont 生成器）将 TTF 转为 woff2 子集，
-  可大幅减小体积，适合个人主页这种文本量不大的页面。
+```
+AlloVariableFriendly.woff2  (~240 KB)  可变字重 100–900，圆润度固定在 Friendly (50)
+OFL.txt                                 SIL Open Font License 1.1 授权文本
+```
 
-## 英文 Sniglet
+## 为什么选 Friendly 版
 
-- 已通过 jsDelivr 加载 @fontsource/sniglet，无需本地文件。
+Allo 的完整可变字体还带 `ROND` 圆润度轴，文件约 448 KB；本站只用到字重和自动光学尺寸，
+Friendly 版约 240 KB，体积减半，圆润度固定在字体推荐的默认档位。
+
+## 字体分工
+
+- 正文与标题里的拉丁字符走 Allo
+- 中文回退到无衬线系统字体（PingFang SC → Hiragino Sans GB → Microsoft YaHei）
+- 所有字形都不再依赖 jsDelivr 或本地缺失的字体文件
+
+## 授权
+
+Allo 由 Josh Puckett 设计，基于 [Inter](https://github.com/rsms/inter) 改编，采用 SIL Open Font License 1.1。
+可自由用于个人与商业项目、网站与软件分发；不得单独出售字体文件。完整条款见同目录 `OFL.txt`。
+
+字体版本：1.0.3 · 来源：<https://allo.joshpuckett.me/downloads/Allo-1.0.3.zip>

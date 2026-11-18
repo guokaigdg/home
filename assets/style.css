@@ -1,8 +1,11 @@
-/* 乐米惠圆体（中文正文，自托管）— 字体文件见 assets/fonts/README.md */
+/* Allo 1.0.3 — Josh Puckett，SIL OFL 1.1，字体文件见 assets/fonts/README.md
+   Friendly 版：字重 100–900、光学尺寸可变，圆润度固定 50，约 240 KB
+   Allo 只有拉丁字形，中文交给后面的系统字体回退 */
 @font-face {
-  font-family: 'LemiHuiYuanTi';
-  src: url('fonts/lemi-huiyuan-ti.woff2') format('woff2'),
-    url('fonts/lemi-huiyuan-ti.ttf') format('truetype');
+  font-family: 'Allo';
+  src: url('fonts/AlloVariableFriendly.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -48,8 +51,8 @@ body {
 }
 
 body {
-  font-family: 'LemiHuiYuanTi', 'Yuanti SC', 'YouYuan', '幼圆',
-    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-family: 'Allo', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'Yuanti SC', 'YouYuan', '幼圆', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -59,11 +62,11 @@ body {
   flex-direction: column;
 }
 
-/* 标题用站酷小薇Logo体 */
+/* 标题沿用 Allo，中文回退系统无衬线 */
 .brand,
 h1,
 .display {
-  font-family: "ZCOOL XiaoWei", "PingFang SC", "Hiragino Sans GB",
+  font-family: "Allo", "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", sans-serif;
 }
 
@@ -99,7 +102,7 @@ a:hover {
 .brand {
   font-weight: 600;
   font-size: 20px;
-  font-family: "Comic Sans MS", cursive;
+  font-family: "Allo", "PingFang SC", "Microsoft YaHei", sans-serif;
   letter-spacing: 0.06em;
   color: var(--text);
 }
@@ -300,8 +303,8 @@ main {
 }
 
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -310,7 +313,7 @@ main {
 
 .hero h1 {
   font-size: 36px;
-  font-family: "Comic Sans MS", cursive;
+  font-family: "Allo", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.05;
